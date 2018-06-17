@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	<!--
+		namespace:请求路径 同一个package里面,aciontName是不可重复. 不同的package是可以重复的.
+		如果请求不需要分类管理,name,namespace,extends都不建议修改 name:package的唯一标识
+		namespace:请求地址的映射,比如请求hello,请求地址为/test/hello <package name="default"
+		namespace="/" extends="struts-default">
+	-->
+	<package name="test" namespace="/" extends="struts-default">
+		<action name="hello" class="com.hj.action.HelloAction"
+			method="hello">
+			<result type="redirect" name="success">/index.jsp</result>
+		</action>
+	</package>
+	
+	<package name="login" namespace="/login" extends="struts-default">
+		<action name="login" class="com.hj.action.LoginAction"
+			method="login">
+			<result type="redirect" name="success">/main/main.jsp</result>
+		</action>
+	</package>
+    <!-- Add packages here -->
+
+</struts>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--注意  需要配置config的约束文件 -->
+<configuration>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"></transactionManager>
+			
+			<!-- mySql -->
+			<!-- <dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://127.0.0.1:3306/njwangbo?useUnicode=true"/>
+				<property name="username" value="root"/>
+				<property name="password" value="root"/>
+			</dataSource> -->
+		
+			<!-- oracle -->
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.OracleDriver"/>
+				<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:HJ"/>
+				<property name="username" value="hj"/>
+				<property name="password" value="admin"/>
+			
+			</dataSource>
+			
+		</environment>
+
+	</environments>
+	
+	<mappers>
+		<mapper resource="com/hj/dao/impl/deptMapper.xml" />
+		<mapper resource="com/hj/mapper/deptMapper_mapperDaiLi.xml" />
+		<mapper resource="com/hj/dao/impl/empMapper.xml"/>
+		<mapper resource="com/hj/mapper/empMapper_mapperDaili.xml"/>
+	</mappers>
+
+</configuration>

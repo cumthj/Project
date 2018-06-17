@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.hj.mapper.DeptMapper">
+ 	<!-- 定义一个结果集 -->
+ 	
+ 	<resultMap type="com.hj.entity.Dept" id="DeptMap">
+ 		<result column="deptNo" property="deptNo"/>
+ 		<result column="deptName" property="deptName"/>
+ 		<result column="deptLoc" property="deptLoc"/>
+ 		<result column="manager" property="manager"/>
+ 	</resultMap>
+ 
+ 	<select id="queryByDeptNo" parameterType="String" resultMap="DeptMap" >
+ 		<!-- as别名可以去掉 -->
+ 		select t.deptNo as deptNo,
+ 		t.deptName as deptName,
+ 		t.deptLoc as deptLoc,
+ 		t.manager as manager
+ 		from t_dept t
+ 	</select>
+ 
+ 	<!-- 关联查询的sql语句     注意要保证所有的语句都没问题  一个有问题对其他的会有影响 -->
+ 
+ 
+ </mapper>

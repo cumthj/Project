@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <!-- deptMapper.xml也需要配置约束 -->
+ 
+ <mapper namespace = "com.hj.entity.Dept" >
+ 	<insert id="addDept" parameterType = "com.hj.entity.Dept">
+ 		insert into dept (deptNo,dName,Loc)
+ 		values(#{deptNo},#{deptName},#{deptLoc})
+ 	</insert>
+ 	
+ 	<select id="queryOne" parameterType="String" resultType="com.hj.entity.Dept">
+ 		select * from dept t where t.dName = #{value}
+ 	</select>
+ 	
+ </mapper>
